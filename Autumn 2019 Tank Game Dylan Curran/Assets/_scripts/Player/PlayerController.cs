@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 /// <summary>
@@ -122,7 +123,30 @@ public class PlayerController : MonoBehaviour
     {
 		if (other.gameObject.tag.Equals("Box"))
 		{
-			_speed = 60;
+			_speed = 120;
 		}
-	}
+		else
+		{
+			Debug.Log(_health);
+			//_speed = 60;
+			_shieldActive = false;
+			_health = 100;
+		}
+    }
+
+    public float GetHealth()
+    {
+	    return _health;
+    }
+
+    public bool GetShield()
+    {
+	    return _shieldActive;
+    }
+
+    public float GetSpeed()
+    {
+	    return _speed;
+    }
+
 }
